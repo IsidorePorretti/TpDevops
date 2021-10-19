@@ -22,4 +22,4 @@ jobs:
             cache: 'maven'
 
        - name: Build and test with Maven
-         run:  maven package --file simple-api/pom.xml
+         run:  mvn package --file simple-api/pom.xml
