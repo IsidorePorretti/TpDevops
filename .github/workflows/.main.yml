@@ -8,6 +8,18 @@ on:
 jobs:
   job-name: build-and-test-app
     runs-on: ubuntu-18.04
+
+    strategy:
+      matrix:
+        include:
+          - arch: aarch64
+            distro: ubuntu18.04
+          - arch: ppc64le
+            distro: alpine_latest
+          - arch: s390x
+            distro: fedora_latest
+
+
     steps:
       #checkout your github code using actions/checkout@v2.3.3
        - uses: actions/checkout@v2.3.3
