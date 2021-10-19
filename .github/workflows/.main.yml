@@ -6,8 +6,9 @@ on:
   pull_request:
 
 jobs:
-  job-name: build-and-test-app
+  build_job:
     runs-on: ubuntu-18.04
+    name : build-and-test-app
 
     strategy:
       matrix:
