@@ -30,8 +30,8 @@ jobs:
   build-and-push-docker-image:
     needs: build-and-test-app
     # run only when code is compiling and tests are passing
+    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
-
     # steps to perform in job
     steps:
       - name: Checkout code
@@ -66,3 +66,4 @@ jobs:
            context: ./httpd
            # Note: tags has to be all lower-case
            tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-epf-isidore:simple-api
+           push: true
