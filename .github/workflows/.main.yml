@@ -11,6 +11,8 @@ on:
 jobs:
   build-and-test-app:
     runs-on: ubuntu-18.04
+    env:
+      working-directory: ./simple-api
 
     steps:
       #checkout your GitHub code using actions/checkout@v2.3.3 and actions/setup-java@v2
@@ -29,6 +31,10 @@ jobs:
 
   build-and-push-docker-image:
     needs: build-and-test-app
+
+    env:
+      working-directory: ./simple-api
+
     # run only when code is compiling and tests are passing
     if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
